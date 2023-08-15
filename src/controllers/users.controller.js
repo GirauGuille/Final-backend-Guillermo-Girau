@@ -7,6 +7,8 @@ import path from 'path';
 import { transporter } from '../utils/nodemailer.js';
 import { logger } from '../utils/winston.js';
 import { __dirname } from '../utils/utils.js';
+import { GMAIL_USER } from '../config/config.js';
+
 
 export const register = (req, res) => {
   res.render('register');
@@ -104,32 +106,26 @@ export const deleteInactiveUsers = async (req, res, next) => {
     const users = await userManager.findAndDeleteInactive();
     users.forEach((user) => {
       const mail = {
-        from: 'coderhousemailer@gmail.com',
+        from: GMAIL_USER,
         to: user.email,
-        subject: 'Account deleted',
+        subject: 'Cuenta eliminada',
         template: 'accountDeleted',
       };
       transporter.sendMail(mail, (err, info) => {
-        if (err) {
-          logger.error(err);
-        }
+        if (err) {logger.error(err);}
       });
     });
 
     res.status(200).json(users);
-  } catch (error) {
-    next(error);
-  }
+  } catch (error) {next(error);}
 };
 
 export const deleteUser = async (req, res, next) => {
   const userId = req.params.uid;
   try {
     await userManager.deleteOne(userId);
-    res.status(200).json({ message: 'User deleted successfully' });
-  } catch (error) {
-    next(error);
-  }
+    res.status(200).json({ message: 'El usuario se elimino' });
+  } catch (error) {next(error);}
 };
 
 export const adminManager = async (req, res, next) => {
@@ -137,7 +133,5 @@ export const adminManager = async (req, res, next) => {
     const users = await userManager.findAll();
     const userDTOs = users.map((user) => new UsersDB_DTO(user));
     res.render('roleUsers', { userDTOs });
-  } catch (error) {
-    next(error);
-  }
+  } catch (error) {next(error);}
 };

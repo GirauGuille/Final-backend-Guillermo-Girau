@@ -1,9 +1,11 @@
 {{#if cartItems.length}}
   <h2 align='center'>SU CARRITO</h2>
 
+<div class="productsList">
+
   <table class='table' id='table' cellPadding='10' border='1' align='center' data-cart-id='{{cartId}}'>
     <thead>
-      <tr>
+      <tr class="encabezdo">
         <th>Product Name</th>
         <th>Quantity</th>
         <th>Price</th>
@@ -42,11 +44,12 @@
           {{cartTotal}}
         </td>
         <td colspan='2' align='center'>
-          <button class='purchase'>Purchase</button>
+          <button class='purchase'>COMPRAR</button>
         </td>
       </tr>
     </tfoot>
   </table>
+</div>
 {{else}}
   <h2>Tu carrito esta vacio</h2>
 {{/if}}

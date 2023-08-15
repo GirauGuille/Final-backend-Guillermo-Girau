@@ -14,7 +14,7 @@ productsTable.addEventListener('click', async (e) => {
       if (response.ok) {
         alert('Product added to the cart successfully');
       } else {
-        alert('Error al agregar producto');
+        alert('Error adding product to the cart');
       }
     } catch (error) {
       console.error(error);

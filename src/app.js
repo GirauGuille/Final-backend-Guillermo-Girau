@@ -20,6 +20,8 @@ import { errorMiddleware } from './utils/errors/error.middleware.js';
 import { logger } from './utils/winston.js';
 
 const app = express();
+/* const cors = require('cors');
+app.use (cors()); */
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

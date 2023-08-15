@@ -7,9 +7,9 @@
     </div>
 
 <h2 align='center'>Elige el producto que decea y sumelo al carrito </h2>
-<section class="productsContainer">
+<section class="productsContainer" id='card' data-cart-id='{{cartId}}'>
   {{#each products}}
-  <div class="productsCard" id='card' data-cart-id='{{cartId}}'>
+  <div class="productsCard" id='productsCard'>
     <h3>{{title}}</h3>
     <img src="{{thumbnail}}" />
     <h4 class="desc">{{description}}</h4>
@@ -35,4 +35,4 @@
 {{/if}}
 
 <script src='/socket.io/socket.io.js'></script>
-<script src='/js/index.js'></script>
+<script src='/js/products.js'></script>

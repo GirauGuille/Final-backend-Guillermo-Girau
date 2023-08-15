@@ -1,5 +1,6 @@
 <h2 align='center'>Usuarios de Electrogirau</h2>
 {{#if userDTOs.length}}
+<div class="productsList">
   <table class='table1' id='table1' cellPadding='10' border='1' align='center'>
     <thead>
       <tr>
@@ -8,7 +9,7 @@
         <th>Mail</th>
         <th>Role</th>
         <th>Delete</th>
-        <th>Toggle user</th>
+        <th>Change Role</th>
       </tr>
     </thead>
     <tbody id='usersTable1'>
@@ -19,13 +20,14 @@
           <td>{{email}}</td>
           <td>{{role}}</td>
           {{#unless isAdmin}}
-            <td><button class='delete' data-id='{{id}}'>Delete</button></td>
-            <td><button class='toggleUser' data-id='{{id}}'>Toggle user</button></td>
+            <td><button data-id='{{id}}'>Delete</button></td>
+            <td><button data-id='{{id}}'>Change</button></td>
           {{/unless}}
         </tr>
       {{/each}}
     </tbody>
   </table>
+</div>
 {{else}}
   <h2>No users found</h2>
 {{/if}}

@@ -3,7 +3,6 @@ export const ErrorName = {
 };
 
 export const ErrorMessage = {
-  PRODUCT_NOT_FOUND: 'El producto no existe',
   PRODUCT_ARRAY: 'Products must be an array',
   CART_NOT_FOUND: 'Cart does not exist',
   WRONG_BODY: 'Wrong body',
@@ -14,6 +13,5 @@ export const ErrorMessage = {
   WRONG_SORT: 'wrong sort',
   SESSION_EXPIRED: 'Session expired',
   MAIL_NOT_SEND: 'Mail not send',
-  COULD_NOT_IMAGE: 'Could not save image',
   USER_NOT_FOUND: 'User not found',
 };
