@@ -1,0 +1,60 @@
+{{#if products.length}}
+    <div class="session">
+      <h2>HOLA, {{firstName}}!</h2>
+      <form action='/register/logout' method='post'><button type='submit'>LOGOUT</button></form>
+    </div>
+
+<div class="productsList">
+  <div><h2 align='center'>LISTA DE NUESTROS PRODUCTOS </h2></div>
+  <div>
+    <table class='table' id='table' align='center'>
+    <thead>
+      <tr class="encabezdo">
+        <th>#id</th>
+        <th>Product</th>
+        <th>Imagen</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody id='productsTable'>
+      {{#each products}}
+      <tr>
+        <td>{{id}}</td>
+        <td>{{title}}</td>
+        <td><img class='imgRealT' src={{thumbnail}} /></td>
+        <td>{{description}}</td>
+        <td>${{price}}</td>
+        <td>{{stock}}</td>
+        <td><button data-id='{{_id}}'>ELIMINAR</button></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  </div>
+  {{else}}
+  <h2>No products found</h2>
+  {{/if}}
+</div>
+
+<div class="agregar">
+  <h2 >Agregue aquí productos</h2>
+  <form class="formProduct" id='formProduct' align='center'>
+    <input type='text' id='pTitle' name='title' placeholder='title' />
+    <input type='text' id='pCategory' name='category' placeholder='category' />
+    <input type='number' id='pPrice' name='price' placeholder='price' />
+    <br>
+    <input type='text' id='pCode' name='code' placeholder='code' />
+    <input type='number' id='pStock' name='stock' placeholder='stock' />
+    <input type='text' id='pthumbnail' name='thumbnail' placeholder='imagen' />
+    <br>
+    <input class="ImputDescription" type='text' id='pDescription' name='description' placeholder='description' />
+    <br>
+    <button class="btnAdd" type='submit' id='addProduct'>Add product</button>
+  </form>
+</div>
+
+<script src='/socket.io/socket.io.js'></script>
+<script src='/js/realTime.js'></script>

@@ -1,0 +1,19 @@
+<div class="session">
+  <h2>HOLA, {{firstName}}!</h2>
+  <a href=""></a>
+  <form action='/register/logout' method='post'><button type='submit'>LOGOUT</button></form>
+</div>
+<div class="chatBox">
+  <h2>Cuentanos tu consulta y nosotros les responderemos a la brevedad</h2>
+  <div id='chat'></div>
+  <form id='form'>
+    <input type='text' name='message' id='message' placeholder='Input your message' />
+    <input type='submit' value='SEND' />
+  </form>
+</div>
+
+
+
+<link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css' />
+<script src='/socket.io/socket.io.js'></script>
+<script type='module' src='/js/chat.js'></script>

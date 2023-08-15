@@ -1,0 +1,38 @@
+{{#if products.length}}
+    <div class="session">
+      <h2>HOLA, {{firstName}}!</h2>
+      <button><a href='/views/cart'>TU CARRITO</a></button>
+      
+      <form action='/register/logout' method='post'><button type='submit'>LOGOUT</button></form>
+    </div>
+
+<h2 align='center'>Elige el producto que decea y sumelo al carrito </h2>
+<section class="productsContainer">
+  {{#each products}}
+  <div class="productsCard" id='card' data-cart-id='{{cartId}}'>
+    <h3>{{title}}</h3>
+    <img src="{{thumbnail}}" />
+    <h4 class="desc">{{description}}</h4>
+    <h4>${{price}}</h4>
+    <div class="buttons">
+      <button onclick="deleteProduct({{_id}})" class="minusButton">-</button>
+      <button onclick="deleteProduct({{_id}})" class="plusButton">+</button>
+    </div>
+    <button class='add-to-cart' data-id='{{id}}'>AL CARRITO</button>
+  </div>
+  {{/each}}
+
+
+</section>
+  {{#if hasPrevPage}}  
+  <button><a href='/views/products?page={{prevPage}}'>Volver</a></button>
+  {{/if}}
+  {{#if hasNextPage}}
+  <button><a href='/views/products?page={{nextPage}}'>Siguiente</a></button>
+  {{/if}}
+{{else}}
+<h2>No products found</h2>
+{{/if}}
+
+<script src='/socket.io/socket.io.js'></script>
+<script src='/js/index.js'></script>

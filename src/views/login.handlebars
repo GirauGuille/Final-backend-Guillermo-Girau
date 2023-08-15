@@ -1,0 +1,26 @@
+<div class="login">
+<h2>LOGIN</h2>
+  <img class="imgLogIn" src="/img/persona.jpg" alt="imgLogIn">
+  <form action='/register/login' method='post'>
+    <div class="imputLog">
+      Email:<input type='email' name='email' id='email' />
+    </div>
+    <div class="imputLog">
+      Password:<input type='password' name='password' id='password' />
+    </div>
+    <input class="btnLog" type='submit' value='LOGIN' />
+  </form>
+  <h2>------ o puede iniciar con -------</h2>
+  <div class="passport">
+    <button class="bottonPassport" type="button" onclick="location.href='/register/google'"><img class="imgAuth"
+        src="/img/google-logo.png" alt=""> Google</button>
+  </div>
+  <div class="passport">
+    <button class="bottonPassport" type="button" onclick="location.href='/register/signupGithub'"><img class="imgAuth"
+        src="/img/github-logo.png" alt=""> Github</button>
+  </div>
+  <div>
+    <h2>Si aun no estás registrado, hacelo con el siguiente enlace:</h2>
+    <button onclick="location.href='/register'">¡¡REGISTRATE!!</button>
+  </div>
+</div>

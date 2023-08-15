@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* NAVBAR */
+header {
+    margin-bottom: 10px;
+}
+
+.imgPortadaCaja {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: black;
+}
+
+.imgPortada {
+    width: 80px;
+    height: 60px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.menu {
+    background-color: black;
+    padding: 10px 0;
+}
+
+.menu ul li a {
+    color: green;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menuLink {
+    display: flex;
+    justify-content: space-around;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+.session {
+    background-color: rgba(234, 54, 54, 0.605);
+    text-align: center;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.bienvenido{
+    margin: 15px;
+}
+
+.paneles{
+    margin: 15px;
+}
+
+/* LOGIN */
+
+.registro {
+    padding-top: 10px;
+    text-align: center;
+}
+
+.login {
+    margin-top: 15px;
+    padding: 15px;
+}
+
+.imgLogIn {
+    margin-bottom: 10px;
+    height: 100px;
+    width: 100px;
+}
+
+
+.btnLog{
+    margin-bottom: 5px;
+    background-color: greenyellow;
+}
+
+.logForm {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.passport {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.bottonPassport {
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.imgAuth {
+    width: 20%;
+    height: auto;
+}
+
+/* REGISTRO */
+.vuelveLogin {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.errorLog {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* USUARIO */
+.usuario {
+    background-color: rgb(10, 63, 6);
+    border: 1px white;
+}
+
+.usuario {
+    text-align: center;
+    color: white;
+}
+
+.userCard {
+    text-align: center;
+}
+
+/* PRODUCTS */
+img {
+    margin-bottom: 10px;
+    height: 200px;
+    width: 200px;
+}
+
+.productsContainer {
+    display: grid;
+    grid-template-columns: 33vw 33vw 33vw;
+    justify-items: center;
+}
+
+.productsCard {
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: auto;
+    width: 300px;
+    margin: 20px;
+}
+
+.buttons {
+    margin: 0 0 10px 0;
+}
+
+.minusButton {
+    border: none;
+    background-color: red;
+    border-radius: 6.5px;
+    color: white;
+    width: 50px;
+}
+
+.plusButton {
+    border: none;
+    background-color: green;
+    border-radius: 6.5px;
+    color: white;
+    width: 50px;
+}
+
+.desc{
+    height: 50px;
+}
+.add-to-cart{
+    margin: 5px;
+}
+
+/* REAL TIME */
+.productsList {
+    display: grid;
+    place-content: center;
+    margin-bottom: 10px;
+}
+
+.agregar {
+    margin: 10px 20px 20px 10px;
+    padding-bottom: 10px;
+    background-color: rgba(112, 106, 106, 0.647);
+}
+
+.table{
+    margin: 15px;
+    border: 2px solid black;
+    text-align: center;
+}
+th, td{
+    border: 1px solid #868383;
+}
+tr:hover {background-color: rgba(35, 211, 35, 0.704);}
+
+.encabezdo{
+    background-color: black;
+    color: white;
+}
+
+.imgRealT{
+    width: 100px;
+    height: auto ;
+}
+
+.formProduct{
+    margin-top: 15px;
+}
+
+.btnAdd{
+    background-color: green;
+    color: aliceblue;
+    margin-top: 5px;
+}
+
+.ImputDescription{
+    width: 100%;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: black;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.imgFooter {
+    width: 10%;
+    height: 10%;
+}
+
+.suscribite {
+    color: white;
+}
+
+/* CHAT */
+.chatBox{
+    margin: 20px;
+}
+
+.chat{
+    margin: 120px;
+}

@@ -1,0 +1,11 @@
+<h1>MUCHAS GRACIAS POR TU COMPRA, {{firstName}} {{lastName}}!</h1>
+
+<h2>Compraste:</h2>
+<ul>
+  {{#each cart.products}}
+    <li>{{this.name}} - ${{this.price}}</li>
+  {{/each}}
+</ul>
+<p>Total amount: ${{cart.totalAmount}}</p>
+
+<button><a href="/views/products">VOLVER A LA TIENDA</a></button>
