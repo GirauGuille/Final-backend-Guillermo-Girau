@@ -3,15 +3,15 @@ export const ErrorName = {
 };
 
 export const ErrorMessage = {
-  PRODUCT_ARRAY: 'Products must be an array',
-  CART_NOT_FOUND: 'Cart does not exist',
-  WRONG_BODY: 'Wrong body',
-  WRONG_QUANTITY: 'Wrong quantity',
-  WRONG_LIMIT: 'Wrong limit',
-  WRONG_PAGE: 'Wrong page',
+  PRODUCT_ARRAY: 'El producto tiene que ser un array',
+  CART_ERROR: 'Problemas con el carrito',
+  WRONG_BODY: 'Error en el cuerpo',
+  WRONG_QUANTITY: 'Error en la cantidad',
+  WRONG_LIMIT: 'Error en el limite',
+  WRONG_PAGE: 'Error en la paguina',
   WRONG_AVAILABILITY: 'wrong availability',
-  WRONG_SORT: 'wrong sort',
-  SESSION_EXPIRED: 'Session expired',
+  WRONG_SORT: 'Error en el sort',
+  SESSION_EXPIRED: 'Porfavor inicia sesión',
   MAIL_NOT_SEND: 'Mail not send',
   USER_NOT_FOUND: 'User not found',
 };

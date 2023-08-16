@@ -157,8 +157,8 @@ export const deleteProductById = async (req, res, next) => {
       const mail = {
         from: 'coderhousemailer@gmail.com',
         to: user.email,
-        subject: 'Product deleted',
-        text: `Product deleted: ${product.title}, id: ${product.id}`,
+        subject: 'Producto eliminado',
+        text: `El producto : ${product.title}, con id: ${product.id} se eliminó`,
       };
       transporter.sendMail(mail, (err, info) => {
         if (err) {

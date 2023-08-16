@@ -1,7 +1,6 @@
 import { Router } from 'express';
 import passport from 'passport';
 import { currentSession, errorLogin, errorRegister, githubAuthenticate, login, passportLogin, passportLogout, passportRegister, register } from '../controllers/users.controller.js';
-import { changePass, changePassPage, recover, recoverPage } from '../controllers/recovery.controller.js';
 
 const router = Router();
 
@@ -25,7 +24,7 @@ router.get(
 );
 router.get('/github', passport.authenticate('github', { failureRedirect: '/register/errorLogin' }), githubAuthenticate);
 
-// Login with passport google strategy
+/* Login with passport google strategy */
 router.get('/google',passport.authenticate('googleSignup', { scope: ['profile'] }))
 router.get('/googleCallback',passport.authenticate('googleSignup'),(req,res)=>{
     res.send('logged with google')
@@ -34,10 +33,5 @@ router.get('/googleCallback',passport.authenticate('googleSignup'),(req,res)=>{
 
 router.get('/current', currentSession);
 
-//Recover password
-router.get('/recoverPage', recoverPage);
-router.get('/changePassPage', changePassPage);
-router.post('/recover', recover);
-router.post('/changePass', changePass);
 
 export default router;

@@ -9,7 +9,7 @@ export const getCartByIdPopulated = async (req, res, next) => {
     const cart = await cartByIdPopulated(cid);
     if (!cart) {
       CustomError.createCustomError({
-        message: ErrorMessage.CART_NOT_FOUND,
+        message: ErrorMessage.CART_ERROR,
         status: 404,
       });
     } else {
@@ -45,7 +45,7 @@ export const deleteProductFromCart = async (req, res, next) => {
     const cart = await cartById(cid);
     if (!cart) {
       CustomError.createCustomError({
-        message: ErrorMessage.CART_NOT_FOUND,
+        message: ErrorMessage.CART_ERROR,
         status: 404,
       });
     }
@@ -62,7 +62,7 @@ export const deleteAllProductsFromCart = async (req, res, next) => {
     const cart = await cartById(cid);
     if (!cart) {
       CustomError.createCustomError({
-        message: ErrorMessage.CART_NOT_FOUND,
+        message: ErrorMessage.CART_ERROR,
         status: 404,
       });
     }
@@ -79,7 +79,7 @@ export const updateCart = async (req, res, next) => {
     const cart = await cartById(cid);
     if (!cart) {
       CustomError.createCustomError({
-        message: ErrorMessage.CART_NOT_FOUND,
+        message: ErrorMessage.CART_ERROR,
         status: 404,
       });
     }
@@ -103,7 +103,7 @@ export const updateCartProduct = async (req, res, next) => {
     const cart = await cartById(cid);
     if (!cart) {
       CustomError.createCustomError({
-        message: ErrorMessage.CART_NOT_FOUND,
+        message: ErrorMessage.CART_ERROR,
         status: 404,
       });
     }
@@ -134,7 +134,7 @@ export const purchase = async (req, res, next) => {
     const cart = await cartByIdPopulated(cid);
     if (!cart) {
       CustomError.createCustomError({
-        message: ErrorMessage.CART_NOT_FOUND,
+        message: ErrorMessage.CART_ERROR,
         status: 404,
       });
     }
@@ -142,8 +142,8 @@ export const purchase = async (req, res, next) => {
     const mail = {
       from: 'coderhousemailer@gmail.com',
       to: req.user.email,
-      subject: 'Purchase succesfuly',
-      text: `${req.user.firstName} ${req.user.lastName} your purchase was succesfuly. Your ID: ${result.ticket.code}. Total Price: ${result.ticket.amount}`,
+      subject: 'Compra exitosa',
+      text: `${req.user.firstName} ${req.user.lastName} Tu compra se completo sin problemas. El numero de compra es: ${result.ticket.code}. Total: ${result.ticket.amount}`,
       template: 'purchase',
     };
     transporter.sendMail(mail, (err, info) => {

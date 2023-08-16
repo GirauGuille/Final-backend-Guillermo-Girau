@@ -64,7 +64,7 @@ export const togglePremium = async (req, res, next) => {
     const user = await userManager.findOneById(uid);
     if (user.role === ROLE_ADMIN) {
       CustomError.createCustomError({
-        message: 'Admin cannot be premium',
+        message: 'El usuario admin no puede ser premiun',
         status: 400,
       });
     }
@@ -109,7 +109,7 @@ export const deleteInactiveUsers = async (req, res, next) => {
         from: GMAIL_USER,
         to: user.email,
         subject: 'Cuenta eliminada',
-        template: 'accountDeleted',
+        template: 'Se elimino cu cuenta',
       };
       transporter.sendMail(mail, (err, info) => {
         if (err) {logger.error(err);}
