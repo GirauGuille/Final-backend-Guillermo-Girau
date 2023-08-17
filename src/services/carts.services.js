@@ -41,7 +41,7 @@ export const deleteAllProducts = async (id) => {
   return cart;
 };
 
-export const purchaseCart = async (cart, user) => {
+export const compraCart = async (cart, user) => {
   let amount = 0;
   const productsWithoutStock = [];
   for (const cartItem of cart.products) {
@@ -57,7 +57,7 @@ export const purchaseCart = async (cart, user) => {
   cart.products = cart.products.filter((cartItem) => productsWithoutStock.includes(cartItem.product.id.toString()));
   await cart.save();
 
-  const ticket = { amount, purchaser: user.email };
+  const ticket = { amount, compra: user.email };
   const ticketResponse = await ticketManager.createOne(ticket);
   return { ticket: ticketResponse, productsWithoutStock };
 };

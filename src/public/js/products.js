@@ -12,9 +12,9 @@ productsTable.addEventListener('click', async (e) => {
         method: 'POST',
       });
       if (response.ok) {
-        alert('Product added to the cart successfully');
+        alert('El producto se sumo al carrito');
       } else {
-        alert('Error adding product to the cart');
+        alert('Error al agregar producto al carrito');
       }
     } catch (error) {
       console.error(error);

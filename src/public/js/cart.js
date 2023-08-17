@@ -7,14 +7,10 @@ cartTable?.addEventListener('click', async (e) => {
   const productId = element.getAttribute('data-product-id');
   if (element.className === 'delete') {
     try {
-      const response = await fetch(`/api/carts/${cartId}/product/${productId}`, {
-        method: 'DELETE',
+      const response = await fetch(`/api/carts/${cartId}/product/${productId}`, {method: 'DELETE',
       });
-      if (response.ok) {
-        document.location.reload();
-      } else {
-        alert('Error removing product from the cart');
-      }
+      if (response.ok) {document.location.reload();
+      } else {alert('Error al eliminar producto del carrito');}
     } catch (error) {
       console.error(error);
     }
@@ -22,8 +18,7 @@ cartTable?.addEventListener('click', async (e) => {
     try {
       const quantity = parseInt(element.getAttribute('data-quantity'));
       const stock = parseInt(element.getAttribute('data-stock'));
-      if (quantity + 1 > stock) {
-        alert('Not enough stock');
+      if (quantity + 1 > stock) {alert('No hay stock');
         return;
       }
       const response = await fetch(`/api/carts/${cartId}/product/${productId}`, {
@@ -31,13 +26,11 @@ cartTable?.addEventListener('click', async (e) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ quantity: quantity + 1 }),
       });
-      if (response.ok) {
-        document.location.reload();
+      if (response.ok) {document.location.reload();
       } else {
-        alert('Error increasing quantity');
+        alert('Error al incrementar la cantidad');
       }
-    } catch (error) {
-      console.error(error);
+    } catch (error) {console.error(error);
     }
   } else if (element.className === 'decrease') {
     try {
@@ -53,24 +46,22 @@ cartTable?.addEventListener('click', async (e) => {
       if (response.ok) {
         document.location.reload();
       } else {
-        alert('Error decreasing quantity');
+        alert('Error al disminuir la cantidad');
       }
-    } catch (error) {
-      console.error(error);
+    } catch (error) { console.error(error);
     }
-  } else if (element.className === 'purchase') {
+  } else if (element.className === 'compra') {
     try {
-      const response = await fetch(`/api/carts/${cartId}/purchase`, {
+      const response = await fetch(`/api/carts/${cartId}/compra`, {
         method: 'POST',
       });
       if (response.ok) {
-        alert('Purchase complete!!!');
+        alert('¡su compra se pudo completar');
         document.location.reload();
       } else {
-        alert('Error completing purchase');
+        alert('Error al completar la compra');
       }
-    } catch (error) {
-      console.error(error);
+    } catch (error) {console.error(error);
     }
   }
 });

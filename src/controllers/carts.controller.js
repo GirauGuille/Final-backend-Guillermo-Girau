@@ -1,4 +1,4 @@
-import {cartById, cartByIdPopulated, createOne, deleteAllProducts, deleteProduct, productsToCart, purchaseCart, updateOne, updateOneProduct,} from '../services/carts.services.js';
+import {cartById, cartByIdPopulated, createOne, deleteAllProducts, deleteProduct, productsToCart, compraCart, updateOne, updateOneProduct,} from '../services/carts.services.js';
 import CustomError from '../utils/errors/CustomError.js';
 import { ErrorMessage } from '../utils/errors/error.enum.js';
 import { transporter } from '../utils/nodemailer.js';
@@ -128,7 +128,7 @@ export const updateCartProduct = async (req, res, next) => {
   }
 };
 
-export const purchase = async (req, res, next) => {
+export const compra = async (req, res, next) => {
   try {
     const { cid } = req.params;
     const cart = await cartByIdPopulated(cid);
@@ -138,20 +138,22 @@ export const purchase = async (req, res, next) => {
         status: 404,
       });
     }
-    const result = await purchaseCart(cart, req.user);
+    const result = await compraCart(cart, req.user);
     const mail = {
       from: 'coderhousemailer@gmail.com',
       to: req.user.email,
       subject: 'Compra exitosa',
       text: `${req.user.firstName} ${req.user.lastName} Tu compra se completo sin problemas. El numero de compra es: ${result.ticket.code}. Total: ${result.ticket.amount}`,
-      template: 'purchase',
+      template: 'compra',
     };
     transporter.sendMail(mail, (err, info) => {
       if (err) {
-        logger.error(err);
+        CustomError.createCustomError({
+          message: ErrorMessage.MAIL_ERROR,
+          status: 404,
+        });
       }
     });
-
     res.status(200).json(result);
   } catch (error) {
     next(error);

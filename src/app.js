@@ -59,7 +59,6 @@ app.use('/api/sessions', sessionsRouter);
 app.use('/loggerTest', loggerTestRouter);
 
 
-  
 /* SocketServer */
 const httpServer = app.listen(PORT, () => 
 logger.info(`escuchando puerto http://localhost:${PORT}`));

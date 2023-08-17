@@ -170,4 +170,4 @@ export const deleteProductById = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-};
+};//cuando se elimina el producto de envia mail al dueño del producto

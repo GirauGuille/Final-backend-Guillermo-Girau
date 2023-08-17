@@ -3,6 +3,7 @@ import { cartsModel } from '../../mongoDB/models/carts.model.js';
 import { productManager } from '../productsDaos/ProductsManagerMongo.js';
 import BasicManager from '../basicDaos/BasicManager.js';
 import CustomError from '../../../utils/errors/CustomError.js';
+
 export default class CartManager extends BasicManager {
   constructor(model) {
     super(model);
@@ -51,7 +52,7 @@ export default class CartManager extends BasicManager {
     const cart = await cartsModel.findById(cid);
 
     if (!cart) {
-      throw new Error("Error: Cart doesn't exist");
+      throw new Error("Error: El carrito no se encontro");
     }
     cart.products = cart.products.filter(({ product }) => !product.equals(pid));
     await cart.save();
@@ -71,7 +72,7 @@ export default class CartManager extends BasicManager {
   deleteAllProductsFromCart = async (id) => {
     const cart = await cartsModel.findById(id);
     if (!cart) {
-      throw new Error("Error: Cart doesn't exist");
+      throw new Error("Error: El carrito no se encontro");
     }
     cart.products = [];
     await cart.save();

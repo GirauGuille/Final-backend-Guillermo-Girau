@@ -11,7 +11,7 @@ export const getProducts = async (req, res, next) => {
   try {
     const { limit = 5, page = 0 } = req.query;
     const products = await productManager.findAll(limit, page, undefined, undefined, undefined, true);
-    res.render('products', { products: products.docs, nextPage: products.nextPage, prevPage: products.prevPage,hasNextPage: products.hasNextPage, hasPrevPage: products.hasPrevPage, cartId: req.user.cart,});
+    res.render('products', { firstName: req.user.firstName, products: products.docs, nextPage: products.nextPage, prevPage: products.prevPage,hasNextPage: products.hasNextPage, hasPrevPage: products.hasPrevPage, cartId: req.user.cart,});
   } catch (error) {next(error);}
 };
 

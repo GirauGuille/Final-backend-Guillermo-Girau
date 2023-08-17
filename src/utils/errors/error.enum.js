@@ -14,4 +14,5 @@ export const ErrorMessage = {
   SESSION_EXPIRED: 'Porfavor inicia sesión',
   MAIL_NOT_SEND: 'Mail not send',
   USER_NOT_FOUND: 'User not found',
+  MAIL_ERROR: 'Error al enviar mail'
 };

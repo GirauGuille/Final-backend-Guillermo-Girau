@@ -1,12 +1,5 @@
 import { Router } from 'express';
-import {
-  addProducts,
-  deleteProducts,
-  deleteProductById,
-  getProductById,
-  getProducts,
-  updateProduct,
-} from '../controllers/products.controller.js';
+import {addProducts, deleteProducts, deleteProductById, getProductById, getProducts, updateProduct,} from '../controllers/products.controller.js';
 import { authAdmin, authProductOwnerOrAdmin, authRoles } from '../middlewares/auth.js';
 import { ROLE_ADMIN, ROLE_PREMIUM } from '../DAL/mongoDB/models/users.model.js';
 

@@ -1,14 +1,5 @@
 import { Router } from 'express';
-import {
-  addCarts,
-  addProductsToCart,
-  deleteAllProductsFromCart,
-  deleteProductFromCart,
-  getCartByIdPopulated,
-  purchase,
-  updateCart,
-  updateCartProduct,
-} from '../controllers/carts.controller.js';
+import { addCarts, addProductsToCart, deleteAllProductsFromCart, deleteProductFromCart, getCartByIdPopulated, compra, updateCart, updateCartProduct,} from '../controllers/carts.controller.js';
 import { ROLE_PREMIUM, ROLE_USER } from '../DAL/mongoDB/models/users.model.js';
 import { authPremiumUserAddToCart, authRoles } from '../middlewares/auth.js';
 
@@ -21,6 +12,6 @@ router.delete('/:cid/product/:pid', deleteProductFromCart);
 router.delete('/:cid', deleteAllProductsFromCart);
 router.put('/:cid', updateCart);
 router.put('/:cid/product/:pid', updateCartProduct);
-router.post('/:cid/purchase', purchase);
+router.post('/:cid/compra', compra);
 
 export default router;
