@@ -3,7 +3,7 @@ import { productManager } from '../DAL/DAOs/productsDaos/ProductsManagerMongo.js
 
 export const getHome = async (req, res, next) => {
   try {
-    res.render('home');
+    res.render('home', { firstName: req.user.firstName });
   } catch (error) {next(error);}
 };
 

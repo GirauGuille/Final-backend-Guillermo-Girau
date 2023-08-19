@@ -58,7 +58,7 @@ export const currentSession = (req, res) => {
   res.json(user);
 };
 
-export const togglePremium = async (req, res, next) => {
+export const changeRole = async (req, res, next) => {
   try {
     const { uid } = req.params;
     const user = await userManager.findOneById(uid);
@@ -75,7 +75,7 @@ export const togglePremium = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-};
+};// función que no deja al admin ser premiun, pero si es user si puede serlo
 
 
 export const getAllUsers = async (req, res, next) => {
@@ -134,4 +134,26 @@ export const adminManager = async (req, res, next) => {
     const userDTOs = users.map((user) => new UsersDB_DTO(user));
     res.render('roleUsers', { userDTOs });
   } catch (error) {next(error);}
+};
+
+export const uploadFiles = async (req, res, next) => {
+  try {
+    if (!req.files || req.files.length === 0) {
+      CustomError.createCustomError({
+        message: 'No se pudo cargar el archivo',
+        status: 400,
+      });
+    }
+    const { uid } = req.params;
+    const user = await userManager.findOneById(uid);
+    const newDocuments = req.files.map((file) => ({
+      name: file.originalname,
+      reference: file.path,
+    }));
+    user.documents = [...user.documents, ...newDocuments];
+    await user.save();
+    res.send({ message: 'El archivo se cargo' });
+  } catch (error) {
+    next(error);
+  }
 };

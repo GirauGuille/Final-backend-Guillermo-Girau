@@ -20,8 +20,8 @@
           <td>{{email}}</td>
           <td>{{role}}</td>
           {{#unless isAdmin}}
-            <td><button data-id='{{id}}'>Delete</button></td>
-            <td><button data-id='{{id}}'>Change</button></td>
+            <td><button class='delete' data-id='{{id}}'>Delete</button></td>
+            <td><button class='changeRole' data-id='{{id}}'>Change</button></td>
           {{/unless}}
         </tr>
       {{/each}}

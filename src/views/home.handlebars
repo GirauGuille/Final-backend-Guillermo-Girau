@@ -1,5 +1,12 @@
-  {{#unless isAdmin}}
-  <div class="paneles">
+    <div class="session">
+      <h2>HOLA, {{firstName}}!</h2>
+      <button><a href='/views/cart'>TU CARRITO</a></button>
+      
+      <form action='/register/logout' method='post'><button type='submit'>LOGOUT</button></form>
+    </div>
+
+{{#if userDTOs.isAdmin}}
+  <div class="userMenu">
       <div>
       <button><a href='/views/dashboardProducts'>Panel de control de Productos</a></button>
     </div>
@@ -7,7 +14,8 @@
       <button><a href='/views/users'>Panel de control de Usuarios</a></button>
     </div>
   </div>
-  {{/unless}}
+{{/if}}
+
 
 <div class="bienvenido">
   <h2>BIENVENIDO A MI FINAL DE BACKEND</h2>

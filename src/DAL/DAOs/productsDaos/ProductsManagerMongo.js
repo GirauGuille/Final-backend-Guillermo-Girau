@@ -33,7 +33,7 @@ export default class ProductManager extends BasicManager {
 
   deleteAll = async () => {
     await productModel.deleteMany();
-    return 'Products deleted';
+    return 'Productos eliminados';
   };
 }
 

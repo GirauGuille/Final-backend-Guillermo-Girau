@@ -12,7 +12,6 @@ export default class UsersManager extends BasicManager {
 
   async createOne(user) {
     const { email, password } = user;
-
     const existUser = await userModel.find({ email, password });
     if (existUser.length === 0) {
       const newUser = await userModel.create(user);
@@ -23,12 +22,12 @@ export default class UsersManager extends BasicManager {
   }
 
   async findAndDeleteInactive() {
-    const twoDaysAgo = new Date();
-    twoDaysAgo.setHours(twoDaysAgo.getHours() - 48);
-    const usersToDelete = await userModel.find({ last_connection: { $lt: twoDaysAgo } });
-    await userModel.deleteMany({ last_connection: { $lt: twoDaysAgo } });
+    const halfHourAgo = new Date();
+    halfHourAgo.setHours(halfHourAgo.getHours() - 30);
+    const usersToDelete = await userModel.find({ last_connection: { $lt: halfHourAgo } });
+    await userModel.deleteMany({ last_connection: { $lt: halfHourAgo } });
     return usersToDelete;
   }
-}
+}//función para encontrar y eliminar usuarios inactivos la última media hora
 
 export const userManager = new UsersManager(userModel);

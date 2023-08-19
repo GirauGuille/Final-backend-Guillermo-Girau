@@ -1,5 +1,5 @@
 const deleteUser = document.getElementById('table1');
-const ToggleUserToPremium = document.getElementById('table1');
+const changeUserToPremium = document.getElementById('table1');
 
 deleteUser.addEventListener('click', async (e) => {
   e.preventDefault();
@@ -18,13 +18,11 @@ deleteUser.addEventListener('click', async (e) => {
   }
 });
 
-ToggleUserToPremium.addEventListener('click', async (e) => {
+changeUserToPremium.addEventListener('click', async (e) => {
   e.preventDefault();
   const element = e.target;
 
-  console.log('Toggle button clicked');
-
-  if (element.className === 'toggleUser') {
+  if (element.className === 'changeRole') {
     const userId = element.getAttribute('data-id');
     try {
       await fetch(`/api/users/premium/${userId}`, {

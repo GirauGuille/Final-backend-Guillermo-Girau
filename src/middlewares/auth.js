@@ -97,3 +97,16 @@ export const authPremiumUserAddToCart = async (req, res, next) => {
     next(error);
   }
 };
+
+export const authOwnResource = (req, res, next) => {
+  if (!req.user) {
+    res.status(401).json('Se requiere iniciar sesion');
+    return;
+  }
+  const { uid } = req.params;
+  if (uid === req.user._id.toString()) {
+    next();
+  } else {
+    res.status(403).end();
+  }
+};
